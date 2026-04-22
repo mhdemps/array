@@ -253,6 +253,7 @@
       var stage = document.getElementById("stage");
       var clearBtn = document.getElementById("clear-btn");
       var z = 1;
+      var maxVisible = 30;
 
       function addPhoto() {
         var file = pickFile();
@@ -289,6 +290,9 @@
         crop.appendChild(shroud);
         block.appendChild(crop);
         stage.appendChild(block);
+        while (stage.children.length > maxVisible) {
+          stage.removeChild(stage.firstElementChild);
+        }
       }
 
       stage.addEventListener("click", function (ev) {
